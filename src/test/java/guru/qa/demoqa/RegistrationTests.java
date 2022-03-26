@@ -1,18 +1,27 @@
 package guru.qa.demoqa;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 
 public class RegistrationTests extends TestBase {
 
     @Test
     void successFillTest() {
-        open("automation-practice-form");
-        $(".main-header").shouldHave(text("Practice Form"));
+        SelenideLogger.addListener("allure", new AllureSelenide());
+        step("Открываем главную страницу", () -> {
+            open("automation-practice-form");
+            $(".main-header").shouldHave(text("Practice Form"));
+        });
+
+        //open("automation-practice-form");
+        //$(".main-header").shouldHave(text("Practice Form"));
 
         $("#firstName").setValue("Alex");
         $("#lastName").setValue("Bond");
