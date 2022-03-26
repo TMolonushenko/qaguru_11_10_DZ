@@ -39,7 +39,7 @@ public class Attach {
         );
     }
 
-    @Attachment(value = "video", type = "text/html", fileExtension = ".html")//блок по видео
+    @Attachment(value = "Video", type = "text/html", fileExtension = ".html")//блок по видео
     public static String addVideo() {
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
                 + getVideoUrl(getSessionId())
