@@ -15,6 +15,7 @@ import java.util.Map;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class TestBase {
 
@@ -35,6 +36,7 @@ public class TestBase {
 
     @AfterEach
     void addAttachments() {
+        sleep(5000);
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
